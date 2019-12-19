@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        Array.prototype.mySort = function(comparfn){
+            for(var i=1;i<this.length;i++){
+                for(var j=0;j<this.length-i; j++){
+                    if(comparfn(this[j], this[j+1])>0){
+                        var t = this[j];
+                        this[j] = this[j+1];
+                        this[j+1] = t;
+                    }
+                }
+            }
+        };
+    
+        var a = new Array(1,5,8,2,5,9,4,45,67,2456,12,678);
+        a.mySort((a,b)=>{return b-a});
+
+        document.write(a);
+
+    </script>
+    
+</body>
+</html>
