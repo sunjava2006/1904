@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <script>
+days=['日','一','二','三','四','五','六'];            
+var now = new Date(1995,2,14,22,23,24);
+
+document.writeln(now.toLocaleString());
+document.writeln(now.toLocaleDateString());
+document.writeln(now.toLocaleTimeString());
+
+with(now){
+    var s = getFullYear()+"年"+(getMonth()+1)+"月"+getDate()+"日&nbsp;"+
+            getHours()+":"+getMinutes()+":"+getSeconds()+"&nbsp;星期"+days[getDay()];
+    document.writeln(s);
+}
+
+var long = now.getTime();
+        
+        </script>
+    </pre>
+</body>
+</html>
