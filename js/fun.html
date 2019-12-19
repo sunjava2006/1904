@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sum(a, b){
+           var c  = NaN;
+           if(arguments.length>0){
+               c = 0;
+           }
+           for(var i=0;i<arguments.length;i++){
+               c+=arguments[i];
+           }
+           return c;
+        }
+    
+        // var a = sum(1, 2);
+        // document.write(a);
+
+        var add = sum;
+       document.writeln( add(1,2,3,4));
+    
+    </script>
+</body>
+</html>

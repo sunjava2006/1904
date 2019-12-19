@@ -1,0 +1,23 @@
+.page{
+    width:100vw;
+    height:100vh;
+    background:green;
+}
+
+.page>swiper{
+    height:500rpx;
+    background:white;
+    width:100vw;
+}
+.page>swiper>swiper-itme{
+    height:500rpx;
+    width:100vw;
+    background:yellow;
+}
+.page>swiper image{
+    width:100vw;
+    height:500rpx;
+}
+video{
+    width:100%;
+}

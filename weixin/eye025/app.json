@@ -1,0 +1,52 @@
+{
+    "pages": [
+       
+        "pages/order/order",
+        "pages/index/index",
+        "pages/depinfo/depinfo",
+        "pages/specialist/specialist",
+        "pages/home/home",
+        "pages/location/location",
+        "pages/device/device"
+
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#3a3",
+        "navigationBarTitleText": "南京eye眼科",
+        "navigationBarTextStyle": "black"
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json",
+    "tabBar":{
+        "list":[
+            {
+                "text":"首页",
+                "pagePath":"pages/index/index",
+                "iconPath": "imgs/home.png",
+                "selectedIconPath":"imgs/home_g.png"
+            },
+            {
+                "text": "专家",
+                "pagePath": "pages/specialist/specialist",
+                "iconPath":"imgs/specialist.png",
+                "selectedIconPath":"imgs/specialist_g.png"
+            },{
+                "text": "预约",
+                "pagePath": "pages/order/order",
+                "iconPath":"imgs/order.png",
+                "selectedIconPath":"imgs/order_g.png"
+            },{
+                "text": "位置",
+                "pagePath": "pages/location/location",
+                "iconPath":"imgs/location.png",
+                "selectedIconPath":"imgs/location_g.png"
+            },{
+                "text": "设备",
+                "pagePath": "pages/device/device",
+                "iconPath":"imgs/device.png",
+                "selectedIconPath":"imgs/device_g.png"
+            }
+        ]
+    }
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function a(){
+            var n = {money:1000,account:123456};
+            
+            return function(){
+                var vv = n;
+                return vv;
+            }
+        }
+    
+        var v = a()();
+        document.write(v.money +","+v.account);
+
+    </script>
+</body>
+</html>
