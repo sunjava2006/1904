@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+      /* font-style: italic;    */
+      /* font-weight: ; */
+    
+    }
+    li:not(:first-child){
+        list-style: none;
+    }
+    </style>
+</head>
+<body>
+
+     <div>
+        <p >
+            <ul class="list1">
+                <li name="java">java</li>
+                <li class="item">python</li>
+                <li class="item" id="item1">c++</li>
+                <li name="java">VB</li>
+            </ul>
+        </p>
+
+
+     </div>
+
+    <script>
+        // 按ID找
+        var item1 =  document.getElementById("item1");
+        item1.style.color="red";
+        
+        // 按class找。返回HTMLCollection
+        var items =document.getElementsByClassName("item");
+        document.writeln(items);
+        for(var i=0;i<items.length;i++){
+            items[i].style.fontStyle="italic";
+        }
+
+        // 按 name属性找，返回NodeList
+        var items = document.getElementsByName("java");
+        document.writeln(items);
+        items.forEach((v, i, a)=>{v.style.color="green";});
+
+        // 按tagName ,  返回HTMLCollection
+        var items  = document.getElementsByTagName("li");
+        document.writeln(items);
+        for(var i=0;i<items.length;i++){
+            items.item(i).style.border="solid 1px orange";
+        }
+
+        //-----------------HTML 5 新方法------------------
+        var item = document.querySelector("#item1");
+        item.style.fontWeight="bold";
+        // item.style="font-weight:bold";
+
+        var items = document.querySelectorAll("li:not(:first-child)");
+        document.writeln(items);
+        items.forEach((v,i,c)=>v.style.listStyle="circle");
+
+    </script>
+</body>
+</html>
