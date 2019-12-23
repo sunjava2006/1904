@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script>
+        function start(){
+            task = window.setInterval(function(){
+                var now  = new Date();
+                var s = now.getFullYear()+"年"+(now.getMonth()+1)+"月"+now.getDate()+"日&nbsp;"
+                        +now.getHours()+":"+now.getMinutes()+":"+now.getSeconds();
+                var clock = document.querySelector('#clock');
+                clock.innerHTML=s;
+            }, 1000);
+            
+
+        }
+
+        function init(){
+            var btnStop = document.querySelector('#btnStop');
+            btnStop.addEventListener('click', function(event){
+                window.clearInterval(task);
+            });
+        }
+    
+    </script>
+
+</head>
+<body onload="init();">
+    <label id="clock">xxxx</label>
+
+    <button id="btnStart" onclick="start();">start</button>
+    <button id="btnStop">stop</button>
+
+
+    
+
+</body>
+</html>

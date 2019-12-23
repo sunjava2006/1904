@@ -56,10 +56,13 @@
         }
 
         //-----------------HTML 5 新方法------------------
+        //-----------------充分利用了CSS3的选择符--------------
+        // 返回1个
         var item = document.querySelector("#item1");
         item.style.fontWeight="bold";
         // item.style="font-weight:bold";
 
+        // 返回多个
         var items = document.querySelectorAll("li:not(:first-child)");
         document.writeln(items);
         items.forEach((v,i,c)=>v.style.listStyle="circle");

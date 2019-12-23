@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .ok{
+            color: green;
+        }
+        .nook{
+            color: red;
+        }
+    </style>
+    <script>
+        function testName(v){
+            var reg = /^[a-z,A-Z]{1}[a-z,A-Z,0-9]{2,5}$/;
+            var nameMsg = document.getElementById('nameMsg');
+            if(reg.test(v)){
+                nameMsg.className="ok";
+                nameMsg.innerHTML="&radic;"
+            }else{
+                nameMsg.className = "nook";
+                nameMsg.innerHTML="X";
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <form action="#/">
+        <table>
+            <tr>
+                <td>用户名</td>
+                <td><input type="text" name="userName" onblur="testName(this.value)" 
+                    title="以字母开头，可以是字母与数字的组合，长度为3-6。">
+                
+                    <label id="nameMsg"></label>
+                </td>
+            </tr>
+            <tr>
+                <td>密码</td>
+                <td><input type="text" name="pwd" title="6位长数字"></td>
+            </tr>
+            <tr>
+                <td>固话</td>
+                <td><input type="text" name="tel"></td>
+            </tr>
+            <tr>
+                <td>手机</td>
+                <td><input type="text" name="mobile"></td>
+            </tr>
+            <tr>
+                <td>邮箱</td>
+                <td><input type="text" name="email"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="注册"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

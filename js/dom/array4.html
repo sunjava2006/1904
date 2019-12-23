@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var  result = {data:{
+                                result:{data:[
+                                    {name:"XX单位", lat:123, lon:456},
+                                    {name:"xxx单位", lat:123, lon:555},
+                                    {name:"yyyy单位", lat:22, lon:666}
+                                ]}
+        }}
+        
+
+        var markets=[];//this.getData().markets;
+        var list = result.data.result.data;
+        for(var i=0;i<list.length;i++){
+            var v = list[i];
+            var market={
+                id:i+1,
+                latitude:v.lat,
+                logitude:v.lon,
+                title:v.name
+            };
+            markets.push(market);
+        }
+
+        document.writeln(markets);
+     
+        
+
+        
+    </script>
+</body>
+</html>

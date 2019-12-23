@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a = [];
+
+        for(var i=0;i<10; i++){
+            var ran = Math.round(Math.random()*1000);
+            // a.push(ran);
+            a[i] = ran;
+        }
+    
+        // for(var i=0; i<a.length-1; i++){
+        //     for(var j=0; j<a.length-i-1; j++){
+        //         if(a[j] < a[j+1]){
+        //             var t = a[j];
+        //             a[j] = a[j+1];
+        //             a[j+1] = t;
+        //         }
+        //     }
+        // }
+
+        // a.sort(
+        //     (a,b)=>{return b-a}
+        // )
+
+
+        document.write(a+"<hr>");
+
+        function mySort(a, comparFn){
+            for(var i=0; i<a.length-1; i++){
+                for(var j=0; j<a.length-1-i; j++){
+                    if(comparFn(a[j],a[j+1])>0){
+                        var t = a[j];
+                        a[j] = a[j+1];
+                        a[j+1] = t;
+                    }
+                }
+            }
+        }
+
+        mySort(a, (x,y)=>{
+            return y-x;
+        });
+
+
+        document.write(a);
+    
+    </script>
+</body>
+</html>
