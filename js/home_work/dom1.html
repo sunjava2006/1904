@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+        button{
+            float: right;
+        }
+    </style>
+    <script>
+
+        function add(){
+            var tbody = document.getElementsByTagName('tbody')[0];
+            console.log(tbody);
+
+            var tr = document.createElement('tr');
+            var td1 = document.createElement("td");
+            var td2 = document.createElement("td"); 
+            tr.append(td1, td2);
+
+            var input = document.createElement('input');
+            input.setAttribute("type","file");
+            td1.append(input);
+
+            var button  = document.createElement("button");
+            button.innerText = "删除";
+            td2.append(button);
+
+            button.addEventListener("click",function(e){ // 绑定事件监听
+                var btn =  e.currentTarget; // 获取当前事件处理对象。
+                var tr = btn.parentNode.parentNode;
+                tr.parentNode.removeChild(tr);
+                btn.removeEventListener('click',arguments.callee);// 解除事件监听
+            },false);
+
+
+            var lastRow = document.querySelector('tr:last-child');
+            tbody.insertBefore(tr, lastRow);
+
+        }
+    
+    </script>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td colspan="2"><input type="file"></td>
+           
+        </tr>
+       
+        <tr>
+            <td colspan="2" ><button onclick="add();">添加更多</button></td>
+        </tr>
+    </table>
+</body>
+
+</html>
