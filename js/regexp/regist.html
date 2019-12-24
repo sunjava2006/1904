@@ -14,18 +14,81 @@
         }
     </style>
     <script>
-        function testName(v){
-            var reg = /^[a-z,A-Z]{1}[a-z,A-Z,0-9]{2,5}$/;
-            var nameMsg = document.getElementById('nameMsg');
-            if(reg.test(v)){
-                nameMsg.className="ok";
-                nameMsg.innerHTML="&radic;"
+        var a = false, b=false,c=false,d=false,e=false;
+        function setMsg(id, ok){
+            var msg = document.getElementById(id);
+            if(ok){
+                msg.className="ok";
+                msg.innerHTML="&radic;"
             }else{
-                nameMsg.className = "nook";
-                nameMsg.innerHTML="X";
-            }
+                msg.className = "nook";
+                msg.innerHTML="X";
+            } 
 
         }
+
+        function testName(v){
+            var reg = /^[a-z,A-Z]{1}[a-z,A-Z,0-9]{2,5}$/;
+           
+            if(reg.test(v)){
+                setMsg("nameMsg", true);
+                a = true;
+            }else{
+                setMsg("nameMsg", false);
+                a = false;
+            } 
+
+        }
+        
+        function testPwd(v){
+            var reg = /^\d{6}$/;
+            var ok = false;
+            b = false;
+            if(reg.test(v)){
+                ok = true;
+                b = true;
+            }
+            setMsg('pwdMsg', ok);
+        }
+
+        function testTel(v){
+            var reg = /^\d{3,4}(\s|-)?\d{8}$/;
+            var ok = false;
+            c = false;
+            if(reg.test(v)){
+                ok = true;
+                c= true;
+            }
+            setMsg('telMsg', ok);
+
+        }
+
+        function testMobile(v){
+            var reg = /^(139|133|151|189|188|130|152|137|138|127)\d{8}$/;
+            var ok = false;
+            d = false;
+            if(reg.test(v)){
+                ok = true;
+                d = true;
+            }
+            setMsg('mobileMsg', ok);
+        }
+
+        function testEmail(v){
+            var reg = /^\w+@[a-z,0-9]+\.(cn|com|edu|org|gov)(\.cn|\.jp)?$/;
+            var ok = false;
+            e = false;
+            if(reg.test(v)){
+                e = true;
+                ok = true;
+            }
+            setMsg('emailMsg', ok);
+        }
+
+        function submitForm(){
+            return a && b && c && d && e;
+        }
+
     </script>
 </head>
 <body>
@@ -41,22 +104,30 @@
             </tr>
             <tr>
                 <td>密码</td>
-                <td><input type="text" name="pwd" title="6位长数字"></td>
+                <td><input type="text" name="pwd" title="6位长数字" onblur="testPwd(this.value)">
+                    <label id="pwdMsg"></label>
+                </td>
             </tr>
             <tr>
                 <td>固话</td>
-                <td><input type="text" name="tel"></td>
+                <td><input type="text" name="tel" onblur="testTel(this.value);">
+                    <label id="telMsg"></label>
+                </td>
             </tr>
             <tr>
                 <td>手机</td>
-                <td><input type="text" name="mobile"></td>
+                <td><input type="text" name="mobile" onblur="testMobile(this.value);">
+                    <label id="mobileMsg"></label>
+                </td>
             </tr>
             <tr>
                 <td>邮箱</td>
-                <td><input type="text" name="email"></td>
+                <td><input type="text" name="email" onblur="testEmail(this.value);">
+                    <label id="emailMsg"></label>
+                </td>
             </tr>
             <tr>
-                <td colspan="2"><input type="submit" value="注册"></td>
+                <td colspan="2"><input type="submit" value="注册" onclick="return submitForm();"></td>
             </tr>
         </table>
     </form>
