@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function init(){
+            var data={"JiangSu":{"name":"江苏",cities:[{"name":"南京","value":"NanJing"},
+                                                       {"name":"苏州","value":"SuZhou"}]},
+                      "AnHui":{"name":"安徽",cities:[{"name":"合肥","value":"HeFei"},
+                                                     {"name":"安庆","value":"AnQing"}]}
+                    };
+            var province = document.getElementById('province');
+            for(i in data ){
+                var value = i;
+                var title = data[i].name;
+                var opt = document.createElement("option");
+                opt.value = value;
+                opt.innerText=title;
+                province.appendChild(opt);
+            }
+
+            function fillCity(provinceVal){
+                var cities =  data[provinceVal].cities;
+                var city = document.querySelector('#city');
+                while(city.hasChildNodes()){//删除所有子元素
+                    city.removeChild(city.firstChild);
+                }
+                for(i in cities){
+                    var c = cities[i];
+                    var opt = document.createElement('option');
+                    opt.innerText = c.name;
+                    opt.value = c.value;
+                    city.appendChild(opt);
+                }
+            }
+
+            province.addEventListener("change",function(e){
+                var provinceVal = e.target.value;
+                fillCity(provinceVal);
+            })
+
+            fillCity(province.value);// 显示初始值
+        };
+    
+    </script>
+</head>
+<body onload="init();">
+    <select name="province" id="province">
+        
+    </select>
+    <select name="city" id="city">
+      
+    </select>
+</body>
+</html>

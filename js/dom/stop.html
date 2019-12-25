@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button>click</button>
+
+
+    <a href="http://www.qq.com" >QQ</a>
+
+    <script>
+       
+        var qq = document.querySelector('a[href="http://www.qq.com"]')
+        .addEventListener('click',function(e){
+            e.preventDefault();
+            console.log("---------------------------------");
+            window.location.href="http://www.sina.com.cn";
+
+        });
+
+
+
+        document.addEventListener('click',function(e){
+            console.log(e.currentTarget.nodeName);
+           // e.stopPropagation(); // 阻止事件传播
+        }, true);
+        
+
+        document.querySelector('button')
+        .addEventListener('click',function(e){
+            console.log(e.currentTarget.nodeName);
+            e.stopPropagation();
+        },false);
+
+    </script>
+</body>
+</html>

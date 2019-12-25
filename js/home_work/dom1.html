@@ -31,10 +31,15 @@
             td2.append(button);
 
             button.addEventListener("click",function(e){ // 绑定事件监听
-                var btn =  e.currentTarget; // 获取当前事件处理对象。
-                var tr = btn.parentNode.parentNode;
-                tr.parentNode.removeChild(tr);
-                btn.removeEventListener('click',arguments.callee);// 解除事件监听
+
+                var cfm = window.confirm('确认删除吗？');
+                if(cfm){
+                    var btn =  e.currentTarget; // 获取当前事件处理对象。
+                    var tr = btn.parentNode.parentNode;
+                    tr.parentNode.removeChild(tr);
+                    btn.removeEventListener('click',arguments.callee);// 解除事件监听
+                }
+
             },false);
 
 

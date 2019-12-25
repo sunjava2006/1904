@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var ran = Math.floor(Math.random()*10);
+        var msg = '输入一个10以内的数'
+        do{
+            
+            var v =  window.prompt(msg, 5);
+            if(v>ran){
+                msg = "大了";
+            }else if(v<ran){
+                msg = "小了";
+            }
+
+        }while(ran!=v);
+        alert('猜对了'+ran);
+        
+    
+    
+    
+    </script>
+</body>
+</html>
