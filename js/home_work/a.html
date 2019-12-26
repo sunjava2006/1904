@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       var a = new Array();
+       a[0] = 1;
+       a[2] = 3;
+    //    document.write(a[0]);
+    //    document.write(a[2]);
+    //    document.write(a.length);
+
+    //    for(var i=0;i<a.length;i++){
+    //        document.write(a[i]);
+    //    }
+
+    for(var i in a){
+        document.write(i+":"+ a[i]+ "<br>");
+    }
+
+
+    var o =  {"name":"wang", "gender":"male"};
+
+    for(var i in o){
+        document.write(i+":"+ o[i] +"<br>");
+    }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        // 1.	申明一个变量a，给a赋值。（任一个基本数据类型的值都可以）。
+        var a =1;
+
+        // 2.	申明一个全局变量s,给s赋值为“Hello”。
+        s ="Hello";
+        // 3.	编写程序计算：12+50的结果，赋值给变量a。并输出：“a的值是 ??? ”（???是变量a的值）。
+        var a = 12+50
+        document.writeln("a的值是"+a)
+        // 4.	编程计算出半径为6的，圆的面积。并输入结果。
+        var b=Math.PI*Math.pow(6,2);
+        document.writeln(b)
+        // 5.	If(null)，条件会满足吗？if(‘’)呢？if (-1)呢？
+        if(-1){
+            document.writeln(9);
+        }
+        // （1）不满足，（2）不满足（3）满足
+        // 6.	“123.45a”解析出这个字符串中的整数用什么方法？解析出全部数据用什么方法？用Number()是否可以？为什么？
+       document.write(parseInt("123.45a")); // 解析函数
+       document.write(parseFloat('123.45a'))
+       document.write(Number("123.45"));// 转换函数
+
+        // 7.	用科学计数法表示3.24159265。精确到小数点3点。
+        var w=3242E-3;
+        document.write(w);
+        
+        // 8.	产生一个随机数，将这个随机数，最大值设置为500。
+        var q=Math.round(Math.random()*500);
+        document.write(q);
+        // 9.	“Hello World”，取出字符串中第3个字符。
+        var str="Hello World";
+        document.writeln(str.charAt(2)+'<br>');
+      
+
+        // 10.	“Hello World“，取出字符串中3-8（不含8）个位置的内容。
+        document.writeln(str.substring(2,7));
+
+        // 11.	数组中有10个随机整数，取出偶数位置的数据，将它们求和。
+        var a = [];
+        for(var i=0;i<10;i++){
+            var ran = Math.round(Math.random()*10);
+            // a.push(ran);
+            a[i] = ran;
+        }
+        document.writeln("<br>", a, "<br>");
+        var s = 0;
+        for(var i=1;i<a.length;i+=2){
+            s = s+a[i];
+        }
+        document.writeln(s);
+    
+        document.writeln("<hr>", 90, "china",100,"<h1>Hi</h1>");
+    </script>
+</body>
+</html>
