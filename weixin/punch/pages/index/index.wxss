@@ -1,0 +1,40 @@
+.head{
+    width: 100vw;
+    height: 30vh;
+}
+.page{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 70vh;
+    width: 100vw;
+    align-items: center;
+    background:#698e8b;
+
+}
+
+.input{
+    height: 160rpx;
+    /* border: solid black 1px; */
+    width: 80vw;
+    line-height: 80rpx;
+    background: white;
+    border-radius: 20rpx;
+}
+
+
+.btn-group{
+    height: 140rpx;
+    /* border: solid black 1px; */
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+}
+.btn-group>button{
+   width:35vw;
+}
+
+input{
+    border-top: solid gray 1rpx;
+    height: 80rpx;
+}

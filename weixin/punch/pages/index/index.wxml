@@ -1,0 +1,28 @@
+
+<image src="/imgs/back.png" class="head"></image>
+<view class="page">
+    <view class="input">
+        <view>登录名：</view>
+        <input></input>　　　　　　　　　　　　　　　　　  
+    </view>
+
+    <view class="input">
+        <view>密码：</view>
+        <input></input>　
+    </view>
+
+    <view class="input">
+        <view>老师身份：</view>
+        <switch style="switch"  >
+           
+        </switch>
+    </view>
+
+    <view class="btn-group">
+        <button>注册</button>
+        <button>登录</button>
+    </view>
+
+    
+
+</view>
