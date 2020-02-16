@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         p = {
+             name:"wang",
+             age:20,
+             work:function(){
+                 document.write(this.name +" is working now.<br>");
+             }
+         };
+         document.write(p.name+","+p.age+"<br>");
+         p.work();
+//-----------------------------------------
+         p2 = new Object();
+         p2.name = "Li";
+         p2.age = 30;
+         p2.work=function(){
+            document.write(this.name +" is working now.<br>");
+         };
+    
+         document.write(p2.name+"<br>");
+         p2.work();
+//------------------------------------------
+        function Man(name, age){
+            this.name = name;
+            this.age = age;
+        }
+        Man.prototype.work = function(){
+            document.write(this.name +" is working now.<br>");
+        }
+
+        p3 = new Man("WangYing", 20);
+        document.write(p3.name+"<br>");
+        p3.work();
+
+
+    </script>
+</body>
+</html>

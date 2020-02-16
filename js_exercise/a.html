@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a = [];
+        for(var i=0;i<10;i++){
+            a[i] = Math.round(Math.random()*10);
+        }
+        var sum = 0;
+        a.forEach((v,i,arr)=>{if((i+1)%2==0){
+                sum+=v
+                }
+            });
+      
+        sum = 0;
+        for(var i=0;i<a.length;i++){
+            if((i+1)%2==0){
+                sum += a[i];
+            }
+        }
+
+        sum = 0;
+        for(var i=1;i<a.length;i+=2){
+            sum += a[i];
+        }
+
+    </script>
+</body>
+</html>
