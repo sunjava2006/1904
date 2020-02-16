@@ -41,9 +41,14 @@ public class Student {
 		this.loginName = loginName;
 		this.passwd = passwd;
 	}
+	
 	@Override
 	public String toString() {
 		return "Student [ID=" + ID + ", name=" + name + ", loginName=" + loginName + ", passwd=" + passwd + "]";
+	}
+	
+	public void study() {
+		System.out.println("study...........");
 	}
 	
 	
