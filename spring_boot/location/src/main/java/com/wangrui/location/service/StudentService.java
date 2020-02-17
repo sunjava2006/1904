@@ -32,18 +32,30 @@ public class StudentService {
 	}
 	
 	/**
+	 * 以对象中所在字段为依据更新到数据库， 对象属性为null更新后，记录中对应字段也为null.
 	 * @param stu
 	 * @return
 	 */
-	public int update(Student stu) {
-		return this.studentMapper.update(stu);
+	public int updateAllProperties(Student stu) {
+		return this.studentMapper.updateAllProperties(stu);
 	}
 	
 	/**
+	 * 
 	 * @param studentID
 	 * @return
 	 */
 	public int delete(String studentID) {
 		return this.studentMapper.delete(studentID);
 	}
+	
+	/**
+	 * 更新对象中不为null的字段。以学生学号为条件。
+	 * @param stu
+	 * @return
+	 */
+	public int updateByExample(Student stu) {
+		return this.studentMapper.update(stu);
+	}
+	
 }

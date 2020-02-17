@@ -12,11 +12,11 @@ class StudentServiceTest {
 	@Autowired
 	StudentService ss;
 
-//	@Test
-//	void testLogin() {
-//		Student stu = ss.login("150201", "123456");
-//		System.out.println(stu);
-//	}
+	@Test
+	void testLogin() {
+		Student stu = ss.login("150201", "123456");
+		System.out.println(stu);
+	}
 //	
 //	@Test
 //	void testAdd(){
@@ -28,12 +28,17 @@ class StudentServiceTest {
 //	@Test
 //	void testUpdate() {
 //		Student stu = new Student(2, "150202", "江小红", "654321", "女", 1);
-//		System.out.println(ss.update(stu));
+//		System.out.println(ss.updateAllProperties(stu));
 //	}
 	
-	@Test
-	void testDelete() {
-		this.ss.delete("150202");
-	}
+//	@Test
+//	void testDelete() {
+//		this.ss.delete("150202");
+//	}
+//	@Test
+//	void testUpdateByExample() {
+//		Student stu = new Student(null,"150202", null,"abc", "女", null);
+//		this.ss.updateByExample(stu);
+//	}
 
 }
