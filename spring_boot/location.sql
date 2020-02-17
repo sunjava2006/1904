@@ -22,3 +22,6 @@ values(1,'150201','Îâð©','123456','ÄÐ',1);
 commit;
 
 select * from STUDENTS;
+
+create sequence seq_students ;
+select seq_students.nextval from dual;

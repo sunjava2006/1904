@@ -1,10 +1,13 @@
 package com.wangrui.location.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.One;
 import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -25,13 +28,18 @@ public interface StudentMapper {
 //			          @Result(column = "class_id", property = "classID"),
 			          @Result(column = "student_id", property = "studentID"),
 			          @Result(column = "class_id", property = "myClass",
-			          one = @One(fetchType = FetchType.EAGER,
+			          one = @One(fetchType = FetchType.EAGER, // one表示对1关联。@One表示这个One是怎样查询来的。
 			        		  select = "com.wangrui.location.mapper.ClassMapper.findByID" ))
 	        })
 	public Student selectByIdAndPasswd(String studentID, String passwd);
 	
+	@Select("select * from students where class_id=#{classID}")
+	@ResultMap("StudentMapper")
+	public List<Student> findByClassID(int classID);
+	
+	
 	@Insert("insert into students(id,name,passwd,gender,class_id,student_id) "
-			+ "values (seq_students.nextval,#{name},#{password},#{gender},#{classID},#{studentID})")
+			+ "values (seq_students.nextval,#{name},#{password},#{gender},#{myClass.ID},#{studentID})")
 	public int insert(Student student);
 	
 	/**
@@ -54,4 +62,13 @@ public interface StudentMapper {
 	 */
 	@UpdateProvider(type = StudentSQLProvider.class, method = "updateByExample")
 	public int update(Student student);
+	
+	
+	/**
+	 * 根据班级名，删除该班级的学生
+	 * @param className
+	 * @return
+	 */
+	@Delete("delete from students where class_id=(select id from classes where class_name=#{className})")
+	public int deleteByClassName(String className);
 }
