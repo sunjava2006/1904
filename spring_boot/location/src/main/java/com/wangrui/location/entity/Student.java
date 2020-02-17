@@ -54,5 +54,19 @@ public class Student implements Serializable{
 				+ ", gender=" + gender + ", classID=" + classID + "]";
 	}
 	
+	public Student(Integer id, String studentID, String name, String password, String gender, Integer classID) {
+		super();
+		this.id = id;
+		this.studentID = studentID;
+		this.name = name;
+		this.password = password;
+		this.gender = gender;
+		this.classID = classID;
+	}
+	
+	public Student() {
+		
+	}
+	
 	
 }
