@@ -1,0 +1,4 @@
+<view id="page">
+     <map></map>
+     <button>打卡</button>
+</view>

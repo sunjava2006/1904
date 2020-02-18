@@ -2,6 +2,7 @@ package com.wangrui.location.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.CacheNamespace;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -16,6 +17,7 @@ import org.apache.ibatis.mapping.FetchType;
 
 import com.wangrui.location.entity.Student;
 //https://github.com/sunjava2006/1904
+//@CacheNamespace(blocking = true)
 @Mapper
 public interface StudentMapper {
 	

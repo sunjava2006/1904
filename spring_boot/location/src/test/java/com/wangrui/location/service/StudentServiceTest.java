@@ -15,18 +15,20 @@ class StudentServiceTest {
 	@Autowired
 	StudentService ss;
 
-//	@Test
-//	void testLogin() {
-//		Student stu = ss.login("150201", "123456");
-//		System.out.println(stu);
-//	}
-//	
 	@Test
-	void testAdd(){
-		Student stu = new Student(2,"150202","XiXi","123","男",new MyClass(1,"1502", null));
-		int count = ss.add(stu);
-		System.out.println(count);
+	void testLogin() {
+		Student stu = ss.login("150201", "123456");
+		System.out.println(stu.getName());
+//		stu = ss.login("150201", "123456");
+//		System.out.println(stu.getName());
 	}
+//	
+//	@Test
+//	void testAdd(){
+//		Student stu = new Student(2,"150202","XiXi","123","男",new MyClass(1,"1502", null));
+//		int count = ss.add(stu);
+//		System.out.println(count);
+//	}
 	
 //	@Test
 //	void testUpdate() {

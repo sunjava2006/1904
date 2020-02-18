@@ -1,5 +1,7 @@
 package com.wangrui.location.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,9 +19,10 @@ public class UserController {
 	// 接受用户的登录请求
 	@RequestMapping(path = "/login") // 将指定的URL映射到这个方法上。	
 	@ResponseBody // 表示http响应返回该方法返回的内容。
-	public String login(String studentID, String passwd) {
+	public String login(String studentID, String passwd, HttpSession session) {
 		Student s = this.StudentService.login(studentID, passwd);
 		if(null != s) {
+			session.setAttribute("studentInfo", s);
 			return "登录成功";
 		}else {
 			return "登录失败";

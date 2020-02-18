@@ -1,5 +1,6 @@
 package com.wangrui.location.mapper;
 
+import org.apache.ibatis.annotations.CacheNamespace;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Many;
 import org.apache.ibatis.annotations.Mapper;
@@ -10,7 +11,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.mapping.FetchType;
 
 import com.wangrui.location.entity.MyClass;
-
+//@CacheNamespace(blocking = true)
 @Mapper
 public interface ClassMapper {
 

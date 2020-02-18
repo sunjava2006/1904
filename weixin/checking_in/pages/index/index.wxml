@@ -1,0 +1,23 @@
+<form bindsubmit="onSubmit" id="my_form">
+<view class="page">
+
+    <view id="frame">
+        
+            <view id="stu">
+                <label>学号:</label>
+                <input class="input" value="{{studentID}}" name="studentID"></input>
+            </view>
+            <view id="passwd">
+                <label>密码:</label> 
+                <input class="input" value="{{passwd}}" name="passwd" type="password"></input>
+            </view>
+            <view>
+                  <label>{{msg}}</label>
+            </view>
+            <button form-type="submit" id="btn">登录</button>
+         
+    </view>
+
+</view>
+</form>
+
