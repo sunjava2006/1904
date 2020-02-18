@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>班级管理</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+   <link rel="stylesheet" href="./css/bootstrap-theme.css">
+   <script src="./js/jquery.js"></script>
+   <script src="./js/bootstrap.js"></script>
+</head>
+<body>
+    <form action="/addclass" method="post">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                    <h3 class="panel-title">添加班级</h3>
+            </div>
+
+            <div class="panel-body">
+                
+                <div class="input-group">
+                    <div class="input-group-addon">班级名</div>
+                    <input type="text" class="form-control" name="className" placeholder="1502">
+                </div>
+                
+                <div style="margin-top: 20px;">
+                        <label th:text="${msg}"></label>
+                    <button class="btn btn-info pull-right" type="submit">保存</button>
+                </div>
+                
+            </div>
+            
+        </div>
+    </form>
+    
+</body>
+</html>
+
+

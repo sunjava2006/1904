@@ -2,6 +2,7 @@ package com.wangrui.location.mapper;
 
 import org.apache.ibatis.annotations.CacheNamespace;
 import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Many;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Result;
@@ -43,4 +44,7 @@ public interface ClassMapper {
 	
 	@Delete("delete from classes where class_name=#{className}")
 	public int deleteByName(String className);
+	
+	@Insert("insert into classes(id, class_name) values (seq_classes.nextval, #{className})")
+	public int add(MyClass c);
 }

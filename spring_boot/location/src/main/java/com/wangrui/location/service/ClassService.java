@@ -44,4 +44,8 @@ public class ClassService {
 		this.classMapper.deleteByName(className);
 	}
 	
+	public int add(MyClass c) {
+		return this.classMapper.add(c);
+	}
+	
 }
