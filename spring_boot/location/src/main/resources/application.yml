@@ -1,0 +1,26 @@
+#server.port=9999
+server:
+  port: 9999
+
+# 数据库连接 RUL 
+#spring.datasource.url=jdbc:oracle:thin:@localhost:1521/xe
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521/xe
+    driver-class-name: oracle.jdbc.OracleDriver
+    username: location
+    password: 123456
+
+
+
+ 
+# 输出 SQL 语句 
+#logging.level.com.wangrui.location.mapper=debug 
+logging:
+  level: 
+    com.wangrui.location.mapper: debug
+    
+
+   
+
+#mybatis.configuration.cache-enabled=true

@@ -28,3 +28,6 @@ select seq_students.nextval from dual;
 
 select * from classes;
 update students set passwd='123456';
+
+
+create sequence seq_classes start with 2;

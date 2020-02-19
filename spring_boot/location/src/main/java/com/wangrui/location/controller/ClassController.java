@@ -3,12 +3,14 @@ package com.wangrui.location.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.wangrui.location.entity.MyClass;
 import com.wangrui.location.service.ClassService;
 
 @Controller
+//@RequestMapping("/class")
 public class ClassController {
 
 	@Autowired
@@ -21,7 +23,7 @@ public class ClassController {
 	
 	
 	// Controller
-	@RequestMapping("/addclass")
+	@RequestMapping(value="/addclass", method=RequestMethod.POST  ) // http://localhost:9999/class/addclass
 	public ModelAndView add(MyClass c) {
 		System.out.println("----------/addclass------");
 		

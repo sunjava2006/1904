@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>教务管理系统-登录页面</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/bootstrap-theme.css">
+    <script src="./js/jquery.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        .input-group {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div style="display: flex; flex-direction: column; justify-content: center;height: 100%;">
+
+        <div class="container">
+
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-lg-offset-3 col-md-offset-3">
+
+                    <form action="adminLogin" method="post">
+                        <div class="panel panel-info  ">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">登录</h3>
+                            </div>
+                            <div class="panel-body">
+
+                                <div class="input-group">
+                                    <div class="input-group-addon">登录名</div>
+                                    <input type="text" class="form-control" name="loginName">
+                                </div>
+
+
+
+                                <div class="input-group">
+                                    <div class="input-group-addon">密码</div>
+                                    <input type="text" class="form-control" name="pwd">
+                                    <span class="input-group-btn">
+                                        <button type="submit" class="btn btn-primary">登录</button>
+                                    </span>
+                                </div>
+
+
+                                <div class="input-group">
+                                    10天免登录
+                                    <input type="checkbox" name="auto" value="yes">
+                                    <label th:text="${msg}"></label>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+</body>
+
+</html>

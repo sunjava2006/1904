@@ -11,6 +11,7 @@ public class MyMvcConfigurer implements WebMvcConfigurer {
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
 		registry.addViewController("class_manage").setViewName("class_manage");
+		registry.addViewController("/").setViewName("loginpage");// 改变首页
 	}
 
 }
