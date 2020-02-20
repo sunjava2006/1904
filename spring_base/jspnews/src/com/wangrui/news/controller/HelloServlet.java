@@ -2,17 +2,21 @@ package com.wangrui.news.controller;
 
 import java.io.IOException;
 
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import com.wangrui.news.service.UserService;
 
+// Servlet3.0版本支持使用注解的方式进行配置
+@WebServlet(urlPatterns = "/fine", loadOnStartup = 1)
 public class HelloServlet implements Servlet{
 
 	public HelloServlet() {
