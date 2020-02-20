@@ -13,6 +13,7 @@
   <servlet>
       <servlet-name>hi</servlet-name>
       <servlet-class>com.wangrui.news.controller.HelloServlet</servlet-class>
+      <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
        <servlet-name>hi</servlet-name>
