@@ -1,6 +1,7 @@
 package com.wangrui.location.mapper;
 
-import org.apache.ibatis.annotations.CacheNamespace;
+import java.util.List;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Many;
@@ -47,4 +48,13 @@ public interface ClassMapper {
 	
 	@Insert("insert into classes(id, class_name) values (seq_classes.nextval, #{className})")
 	public int add(MyClass c);
+	
+	@Select("select * from(" + 
+			"select a.*, rownum ro from(" + 
+			"select * from classes order by id desc)a where rownum<=#{end}) where ro>#{start}")
+	@ResultMap("MyClassMapper")
+	public List<MyClass> list(int start, int end);
+	
+	@Select("select count(*) from classes")
+	public int count();
 }

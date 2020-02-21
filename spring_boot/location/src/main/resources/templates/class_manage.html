@@ -33,6 +33,59 @@
             
         </div>
     </form>
+
+    <form action="/searchClass" method="post">
+        <div class="panel panel-default">
+              <div class="panel-heading">
+                    <h3 class="panel-title">查询</h3>
+              </div>
+              <div class="panel-body">
+                   
+                   <div class="input-group">
+
+                       <input type="text" class="form-control" name="className">
+                       <span class="input-group-btn">
+                           <button type="submit" class="btn btn-info">查询</button>
+                       </span>
+                   </div>
+                   
+              </div>
+               <!-- Table -->
+                <table class="table" th:if="${list} ne null">
+                    <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>班级名</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="i:${list}">
+                            <td th:text="${i.ID}"></td>
+                            <td th:text="${i.className}"></td>
+                            <td>
+                                <a class="btn btn-danger" th:href="@{/delClass(name=${i.className})}">删除</a>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                    <tfoot> 
+                         <tr>
+                            
+                            <td colspan="3">
+                        
+                                <a class="btn btn-info" th:if="${page} gt 1" th:href="@{/searchClass(page=${page-1})}" >上一页</a>
+                                <a class="btn btn-info" th:if="${page lt totalPage}" th:href="@{/searchClass(page=${page+1})}">下一页</a>
+                            </td>
+                         </tr>
+                    </tfoot>
+                </table>
+        </div>
+    </form>
+
+    
+    
+    
     
 </body>
 </html>

@@ -42,6 +42,9 @@ public class LoginInterseptor implements HandlerInterceptor {
 			if(loginName && pwd) {
 				response.sendRedirect("/autoLogin");//响应对象向浏览器发送一个重定向指令。
 			}
+			else {
+				response.sendRedirect("/"); // 重定向到登录 
+			}
 		}
 		
 		

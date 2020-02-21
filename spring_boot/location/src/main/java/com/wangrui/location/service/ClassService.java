@@ -1,5 +1,7 @@
 package com.wangrui.location.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -48,4 +50,13 @@ public class ClassService {
 		return this.classMapper.add(c);
 	}
 	
+	
+	public List<MyClass> list(int page, int size){
+		return this.classMapper.list((page-1)*size, page*size);
+	}
+	
+	public int totalPage(int size) {
+		double s = size;
+		return (int)Math.ceil(this.classMapper.count()/s);
+	}
 }

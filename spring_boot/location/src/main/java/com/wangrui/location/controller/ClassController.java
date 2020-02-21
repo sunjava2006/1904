@@ -1,9 +1,16 @@
 package com.wangrui.location.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.wangrui.location.entity.MyClass;
@@ -39,5 +46,40 @@ public class ClassController {
 		}
 		
 		return mv;
+	}
+	
+	@RequestMapping("/searchClass")
+	public String searchClass(@RequestParam(required = false)String className,
+			                  @RequestParam(defaultValue = "1") int page,
+			                  @RequestParam(defaultValue = "2")int size, 
+			                  Model m) {
+		List<MyClass> list = null;
+		if(className==null || "".equals(className.trim())) {
+			list = this.classService.list(page, size);
+		}else {
+			MyClass c = this.classService.findByName(className);
+			if(c!=null) {
+				list = new ArrayList<>();
+				list.add(c);
+			}
+			
+		}
+		
+		m.addAttribute("list", list);
+		m.addAttribute("page", page);
+		m.addAttribute("totalPage", this.classService.totalPage(size));
+		
+		return "class_manage";
+	}
+	
+	@RequestMapping(path = "/delClass")
+	public String delClass(String name, @RequestHeader("Referer") String url ) {
+		
+		String viewName = "redirect:"+url;
+		
+		this.classService.deleteByName(name);
+		
+		System.out.println("----------------------------------------"+viewName);
+		return viewName;
 	}
 }
