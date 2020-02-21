@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>教学安排</title>
+   <link rel="stylesheet" href="./css/bootstrap.css">
+   <link rel="stylesheet" href="./css/bootstrap-theme.css">
+   <script src="./js/jquery.js"></script>
+   <script src="./js/bootstrap.js"></script>
+   <script>
+        $(function(){
+            $.get({
+                url:'/plan/init',
+                success:function(data){
+                   
+                    for(var i in data.classes){
+                        var c = data.classes[i];
+                        $('#class').append('<option value="'+c.id+'">'+c.className+'</option>');
+                    }
+
+                    for(var i in data.subjects){
+                        var s = data.subjects[i];
+                        $('#subject').append('<option value="'+s.ID+'">'+s.subjectName+'</option>');
+                    }
+                    
+                }
+            });
+        });
+
+
+   </script>
+</head>
+<body>
+   
+   <div class="panel panel-default">
+         <div class="panel-heading">
+               <h3 class="panel-title">添加课程安排</h3>
+         </div>
+         <div class="panel-body">
+               
+               <div class="form-group">
+                   <div class="col-sm-2">
+                       <select name="class" id="class" class="form-control" required="required">
+                           
+                       </select>
+                   </div>
+                   <div class="col-sm-2">
+                        <select name="subject" id="subject" class="form-control" required="required">
+                            
+                        </select>
+                    </div>
+                    <div class="col-sm-2">
+                        <select name="" id="input" class="form-control" required="required">
+                            <option value="">1502</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-2">
+                         <select name="" id="input" class="form-control" required="required">
+                             <option value="">1502</option>
+                         </select>
+                     </div>
+                     <div class="col-sm-2">
+                        <select name="" id="input" class="form-control" required="required">
+                            <option value="">1502</option>
+                        </select>
+                    </div>
+
+               </div>
+               
+         </div>
+   </div>
+   
+</body>
+</html>

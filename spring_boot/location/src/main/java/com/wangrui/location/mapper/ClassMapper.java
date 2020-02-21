@@ -52,7 +52,10 @@ public interface ClassMapper {
 	@Select("select * from(" + 
 			"select a.*, rownum ro from(" + 
 			"select * from classes order by id desc)a where rownum<=#{end}) where ro>#{start}")
-	@ResultMap("MyClassMapper")
+	@Results(value = {
+		   		 @Result(column = "id", property = "ID" , id = true),
+		   		 @Result(column = "class_name", property = "className")
+		    })
 	public List<MyClass> list(int start, int end);
 	
 	@Select("select count(*) from classes")
