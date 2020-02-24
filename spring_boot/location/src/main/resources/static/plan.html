@@ -9,6 +9,7 @@
    <script src="./js/bootstrap.js"></script>
    <script>
         $(function(){
+            // 初始化页面数据
             $.get({
                 url:'/plan/init',
                 success:function(data){
@@ -20,11 +21,43 @@
 
                     for(var i in data.subjects){
                         var s = data.subjects[i];
-                        $('#subject').append('<option value="'+s.ID+'">'+s.subjectName+'</option>');
+                        $('#subject').append('<option value="'+s.id+'">'+s.subjectName+'</option>');
+                    }
+                    for(var i in data.classrooms){
+                        var r = data.classrooms[i];
+                        $('#classroom').append('<option value="'+r.id+'">'+r.classroomName+'</option>');
+                    }
+                    for(var i in data.days){
+                        var d = data.days[i];
+                        $('#day').append('<option value="'+d.id+'">'+d.day+'</option>');
+                    }
+                    for(var i in data.times){
+                        var t = data.times[i];
+                        $('#times').append('<option value="'+t.id+'">'+t.timeName+'</option>');    
                     }
                     
                 }
             });
+
+            // 添加事件监听
+            $('#btnAdd').click(function(e){
+                var classID = $('#class').val();
+                var subjectID = $('#subject').val();
+                var classroomID = $('#classroom').val();
+                var dayID = $('#day').val();
+                var timesID = $('#times').val();
+
+                $.post('/plan/add',
+                       {"myclass.ID":classID, 
+                        "subject.ID":subjectID, 
+                        "classroom.ID":classroomID,
+                        "day.ID":dayID, 
+                        "times.ID":timesID},
+                       function(data){
+                          console.log(data);
+                });
+            });
+            
         });
 
 
@@ -50,19 +83,22 @@
                         </select>
                     </div>
                     <div class="col-sm-2">
-                        <select name="" id="input" class="form-control" required="required">
-                            <option value="">1502</option>
+                        <select name="classroom" id="classroom" class="form-control" required="required">
+                            
                         </select>
                     </div>
                     <div class="col-sm-2">
-                         <select name="" id="input" class="form-control" required="required">
-                             <option value="">1502</option>
+                         <select name="day" id="day" class="form-control" required="required">
+                             
                          </select>
                      </div>
                      <div class="col-sm-2">
-                        <select name="" id="input" class="form-control" required="required">
-                            <option value="">1502</option>
+                        <select name="times" id="times" class="form-control" required="required">
+                            
                         </select>
+                    </div>
+                    <div class="col-sm-2">
+                       <button id="btnAdd" class="btn btn-primary">添加</button>
                     </div>
 
                </div>

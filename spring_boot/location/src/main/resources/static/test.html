@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+       $(function(){
+           $('#btnDel').click(function(e){
+               console.log(this);
+               $(this).parent().parent().remove();
+           });
+        
+       });
+       
+
+    </script>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td>a</td>
+            <td><button id="btnDel">del</button></td>
+        </tr>
+        <tr>
+            <td>b</td>
+        </tr>
+        <tr>
+            <td>c</td>
+        </tr>
+    </table>
+</body>
+</html>

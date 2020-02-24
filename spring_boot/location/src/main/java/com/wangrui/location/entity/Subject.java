@@ -41,5 +41,9 @@ public class Subject implements Serializable{
 		this.subjectName = subjectName;
 	}
 	
+	@Override
+	public String toString() {
+		return "Subject [ID=" + ID + ", subjectID=" + subjectID + ", subjectName=" + subjectName + "]";
+	}
 	
 }
