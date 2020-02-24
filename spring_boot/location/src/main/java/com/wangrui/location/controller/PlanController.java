@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wangrui.location.entity.Classroom;
@@ -69,6 +70,17 @@ public class PlanController {
 			result = "ok";
 		}
 		return result;
+	}
+	
+	
+	@RequestMapping("/findByClassName")
+	public List<Plan> findbyClass(String className){
+		return this.planService.findByName(className);
+	}
+	
+	@RequestMapping("/findByClassID")
+	public List<Plan> findbyClassID(@RequestParam("classID") int id){
+		return this.planService.findByName(id);
 	}
 	
 	

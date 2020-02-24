@@ -9,6 +9,30 @@
    <script src="./js/bootstrap.js"></script>
    <script>
         $(function(){
+           function list(data){
+            var tbody = $('#planList')
+            tbody.empty();
+                                for(var i in data){
+                                    var plan = data[i];
+                                    var tr = document.createElement('tr');
+                                    var td0 = document.createElement('td');
+                                    var td1 = document.createElement('td');
+                                    var td2 = document.createElement('td');
+                                    var td3 = document.createElement('td');
+                                    var td4 = document.createElement('td');
+                                    td0.innerHTML = plan.myclass.className;
+                                    td1.innerHTML = plan.day.day;
+                                    td2.innerHTML = plan.times.timeName;
+                                    td3.innerHTML = plan.classroom.classroomName;
+                                    td4.innerHTML = plan.subject.subjectName;
+                                    $(tr).append(td0,td1,td2,td3,td4);
+                                    tbody.append(tr);
+                                    if(plan.day.id%2==0){
+                                        tr.style.backgroundColor="lightyellow";
+                                    }
+                                }
+            };
+
             // 初始化页面数据
             $.get({
                 url:'/plan/init',
@@ -55,6 +79,18 @@
                         "times.ID":timesID},
                        function(data){
                           console.log(data);
+                          if("ok" == data){
+                              //-----------------当添加成功后，列出该班级的课表-------------------
+                              $.get('/plan/findByClassID?classID='+classID,function(data){
+                                console.log(data);
+                                list(data);
+
+                              });
+                              // ================================================================
+                          }
+                          else{
+                              alert("添加失败，请重试或联系管理员。");
+                          }
                 });
             });
             
@@ -105,6 +141,41 @@
                
          </div>
    </div>
+
+   <!-- --------------------------------------------------------------------------------------------- -->
+   
+   <div class="panel panel-default">
+       <!-- Default panel contents -->
+       <div class="panel-heading">查询</div>
+           <div class="panel-body">
+               
+               <div class="input-group">
+                   <input type="text" class="form-control" id="className" placeholder="班级名如：1505">
+                   <span class="input-group-btn">
+                       <button type="button" class="btn btn-info" id="btnSearch">查询</button>
+                   </span>
+               </div>
+               
+           </div>
+   
+           <!-- Table -->
+           <table class="table">
+               <thead>
+                   <tr >
+                       <th>班级</th>
+                       <th>星期</th>
+                       <th>节</th>
+                       <th>教室</th>
+                       <th>课程</th>
+                   </tr>
+               </thead>
+               <tbody id="planList">
+                   
+                   
+               </tbody>
+           </table>
+   </div>
+   
    
 </body>
 </html>

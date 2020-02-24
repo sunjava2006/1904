@@ -22,4 +22,8 @@ public class PlanService {
 	public List<Plan> findByName(String className){
 		return this.planMapper.findByClass(className);
 	}
+	
+	public List<Plan> findByName(int id){
+		return this.planMapper.findByClassID(id);
+	}
 }

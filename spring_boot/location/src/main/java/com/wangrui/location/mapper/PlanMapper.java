@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.One;
 import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.mapping.FetchType;
@@ -22,8 +23,8 @@ public interface PlanMapper {
 	
 	
 	@Select("select * from plans where class_id=(select id  from classes where class_name=#{className})" + 
-			"order by DAY_ID")
-	@Results(id="PlayMapper",value = {@Result(column = "id", property = "ID", id=true),
+			"order by DAY_ID, times_id")
+	@Results(id="PlanMapper",value = {@Result(column = "id", property = "ID", id=true),
 			                          @Result(column = "classroom_id", property = "classroom",
 			                                  one = @One(fetchType = FetchType.EAGER,
 			                                             select = "com.wangrui.location.mapper.ClassroomMapper.findByID")),
@@ -40,4 +41,9 @@ public interface PlanMapper {
 			                                  one = @One(fetchType = FetchType.EAGER,
 			                                             select = "com.wangrui.location.mapper.DayMapper.findByID"))})
 	public List<Plan> findByClass(String className);
+	
+	
+	@Select("select * from plans where class_id=#{classID} order by day_id, times_id")
+	@ResultMap("PlanMapper")
+	public List<Plan> findByClassID(int classID);
 }
