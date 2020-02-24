@@ -63,7 +63,7 @@
                 }
             });
 
-            // 添加事件监听
+            // 添加事件监听------添加课程计划
             $('#btnAdd').click(function(e){
                 var classID = $('#class').val();
                 var subjectID = $('#subject').val();
@@ -91,6 +91,14 @@
                           else{
                               alert("添加失败，请重试或联系管理员。");
                           }
+                });
+            });
+
+            // 添加按钮事件监听 -------- 查询
+            $('#btnSearch').click(function(e){
+                var className = $('#className').val();
+                jQuery.post('/plan/findByClassName',{"className":className},function(data){
+                    list(data);
                 });
             });
             

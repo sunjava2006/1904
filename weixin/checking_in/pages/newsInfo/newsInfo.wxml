@@ -1,0 +1,2 @@
+<!--pages/newsInfo/newsInfo.wxml-->
+<image src="{{img1}}"></image>
