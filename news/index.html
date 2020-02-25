@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        // $('body').ready(function(){
+        //     alert($('#div1').html())
+        // });
+
+        $(function(){
+            $('#div1').load('http://localhost:6600/getData.html');
+
+            $.get('http://localhost:9900/news/1',function(data){
+                
+                $('#title').html(data.title);
+                $('#content').html(data.content);
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>首页</h1>
+    <div id="div1">
+         hello
+    </div>
+    <label id="title"></label>
+    <p id="content"></p>
+</body>
+</html>
