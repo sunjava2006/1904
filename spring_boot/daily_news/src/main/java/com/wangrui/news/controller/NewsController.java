@@ -3,8 +3,13 @@ package com.wangrui.news.controller;
 import java.io.File;
 import java.io.IOException;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -58,4 +63,16 @@ public class NewsController {
 		return mv;
 		
 	}
+	
+	@GetMapping("/news/{id}")
+	@ResponseBody
+	//@CrossOrigin(allowedHeaders = "*", maxAge = 18, origins = {"http://localhost:5500","http://127.0.0.1:5500"})
+	public News get(@PathVariable(name = "id") int id, HttpServletResponse response) {
+		//response.addHeader("Access-Control-Allow-Origin", "*");
+		News n = new News();
+		n.setTitle("Intel 10 代 U 笔记本电脑");
+		n.setContent("10代U有14nm和10nm两种不同的类型。。。。。");
+		return n;
+	}
+	
 }
