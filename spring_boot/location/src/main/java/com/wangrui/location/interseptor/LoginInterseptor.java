@@ -18,7 +18,7 @@ public class LoginInterseptor implements HandlerInterceptor {
 			viewName = ((ParameterizableViewController)handler).getViewName();
 		}
 		String url = request.getRequestURI();
-		System.out.println("url:" + url);
+		System.out.println("+++++++++++++++++++++++++++++++++++++++++++++url:" + request.getRequestURL());
 		
 		// 从Session中取出数据。
 		Object o = request.getSession(true).getAttribute("userInfo");

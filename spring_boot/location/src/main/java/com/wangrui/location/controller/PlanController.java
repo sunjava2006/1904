@@ -4,7 +4,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,6 +29,9 @@ import com.wangrui.location.service.TimesService;
 @RequestMapping("/plan")
 public class PlanController {
 
+	@Value("${server.port}")
+	private int port;
+	
 	@Autowired
 	private ClassService classService;
 	
@@ -45,8 +51,10 @@ public class PlanController {
 	private PlanService planService;
 	
 	@RequestMapping("/init")
-	public Map init(){
+	public Map init(HttpSession session){
 		Map m = new HashMap();
+		String name = (String) session.getAttribute("userInfo");
+		System.out.println("---------------: "+this.port+" ::" + name);
 		
 	    List<MyClass> classes = this.classService.list(1, 100);	
 	    List<Subject> subjects = this.subjectService.listAll();

@@ -1,6 +1,6 @@
 #server.port=9999
 server:
-  port: 9999
+  port: 9090
 
 # 数据库连接 RUL 
 #spring.datasource.url=jdbc:oracle:thin:@localhost:1521/xe
@@ -12,8 +12,20 @@ spring:
     password: 123456
   thymeleaf:
     cache: false
+#  redis:
+#    host: 127.0.0.1
+#    port: 6379
+#    password: 123456
+#    database: 0
+#    lettuce:
+#      pool:
+#        max-active: 80
+#        max-idle: 8
+#        max-wait: -1ms
+#        min-idle: 0
 
-
+#  session:
+#    store-type: redis # session数据存储到 redis.
 
  
 # 输出 SQL 语句 

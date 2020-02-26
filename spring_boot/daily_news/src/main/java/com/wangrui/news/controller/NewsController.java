@@ -67,12 +67,17 @@ public class NewsController {
 	@GetMapping("/news/{id}")
 	@ResponseBody
 	//@CrossOrigin(allowedHeaders = "*", maxAge = 18, origins = {"http://localhost:5500","http://127.0.0.1:5500"})
-	public News get(@PathVariable(name = "id") int id, HttpServletResponse response) {
+	public String get(@PathVariable(name = "id") int id,
+			          String callback, 
+			          HttpServletResponse response) {
 		//response.addHeader("Access-Control-Allow-Origin", "*");
-		News n = new News();
-		n.setTitle("Intel 10 代 U 笔记本电脑");
-		n.setContent("10代U有14nm和10nm两种不同的类型。。。。。");
-		return n;
+//		News n = new News();
+//		n.setTitle("Intel 10 代 U 笔记本电脑");
+//		n.setContent("10代U有14nm和10nm两种不同的类型。。。。。");
+		String s = callback+"( "
+				   +"{title:'intel', content:'10代U。。。。。'}"
+				+ ")";
+		return s;
 	}
 	
 }
