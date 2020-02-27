@@ -1,7 +1,15 @@
 package com.wangrui.location.config;
 
 
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.Queue;
+import javax.jms.TextMessage;
+
+import org.apache.activemq.command.ActiveMQQueue;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jms.annotation.JmsListener;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
@@ -24,6 +32,17 @@ public class MyMvcConfigurer implements WebMvcConfigurer {
 		ir.addPathPatterns("/*");
 	}
 	
-	
+	@Bean(name = "1904")
+	public Queue createQueue() {
+		return new ActiveMQQueue("1904");
+	}
 
+	@JmsListener(destination = "1904")
+	public void getMsg(Message msg) throws JMSException {
+		TextMessage message = (TextMessage) msg;
+		String txt = message.getText();
+		System.out.println("---------------------收到的消息："+txt);
+		
+	}
+	
 }

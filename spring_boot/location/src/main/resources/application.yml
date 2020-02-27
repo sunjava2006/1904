@@ -12,6 +12,12 @@ spring:
     password: 123456
   thymeleaf:
     cache: false
+  activemq:
+    broker-url: tcp://127.0.0.1:61616
+    user: admin
+    password: admin
+    packages:
+      trust-all: true
 #  redis:
 #    host: 127.0.0.1
 #    port: 6379
