@@ -10,6 +10,8 @@ import org.apache.activemq.command.ActiveMQQueue;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.annotation.JmsListener;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
@@ -37,12 +39,14 @@ public class MyMvcConfigurer implements WebMvcConfigurer {
 		return new ActiveMQQueue("1904");
 	}
 
-	@JmsListener(destination = "1904")
-	public void getMsg(Message msg) throws JMSException {
-		TextMessage message = (TextMessage) msg;
-		String txt = message.getText();
-		System.out.println("---------------------收到的消息："+txt);
-		
-	}
+//	@JmsListener(destination = "1904")
+//	public void getMsg(Message msg) throws JMSException {
+//		TextMessage message = (TextMessage) msg;
+//		String txt = message.getText();
+//		System.out.println("---------------------收到的消息："+txt);
+//		
+//	}
+//	
+
 	
 }

@@ -18,6 +18,20 @@ spring:
     password: admin
     packages:
       trust-all: true
+  mail:
+    host: smtp.qq.com
+    port: 465
+    username: 392977758@qq.com 
+    password: afuefhophffwbjgd
+    default-encoding: utf-8
+    properties: 
+      mail:
+        smtp:
+          socketFactory:
+            class: javax.net.ssl.SSLSocketFactory
+        debug: true
+
+#      
 #  redis:
 #    host: 127.0.0.1
 #    port: 6379
