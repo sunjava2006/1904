@@ -1,19 +1,25 @@
 package com.wangrui.location.jms;
 
+import javax.jms.Connection;
 import javax.jms.DeliveryMode;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageConsumer;
+import javax.jms.MessageListener;
 import javax.jms.MessageProducer;
+import javax.jms.ObjectMessage;
 import javax.jms.Queue;
 import javax.jms.QueueConnection;
 import javax.jms.QueueConnectionFactory;
 import javax.jms.QueueSession;
 import javax.jms.Session;
 import javax.jms.TextMessage;
+import javax.jms.Topic;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.springframework.stereotype.Service;
+
+import com.wangrui.location.entity.Student;
 
 @Service
 public class JmsService {
@@ -83,4 +89,76 @@ public class JmsService {
 			conn.close();
 		}
 	}
+	
+	
+	//=====================================================================================
+	
+	public void listenMsg() throws JMSException {
+		
+			Connection conn =  factory.createConnection();
+			conn.start();
+			Session session =  conn.createSession(true, Session.AUTO_ACKNOWLEDGE);
+			// 1 create topic
+			Topic topic = session.createTopic("notify1904");
+			// 2 create consumer
+			MessageConsumer consumer = session.createConsumer(topic);
+			// 3 监听消息
+			consumer.setMessageListener(new MessageListener() {
+				@Override
+				public void onMessage(Message message) {
+					
+					try {
+						TextMessage msg = (TextMessage) message;
+						System.out.println("======================================收到： "+msg.getText());
+						// 4 commit
+						session.commit();
+					} catch (JMSException e) {
+						e.printStackTrace();
+					} finally {
+						try {
+							consumer.close();
+							session.close();
+							conn.close();
+						} catch (Exception e2) {
+							e2.printStackTrace();
+						}
+					}
+				}
+			});
+	}
+	
+	
+	public void publish() throws JMSException {
+		Connection conn = null;
+		Session session = null;
+		MessageProducer producer = null;
+		try {
+			conn = factory.createConnection();
+			conn.start();
+			session = conn.createSession(true, Session.AUTO_ACKNOWLEDGE);
+			//1 create topic
+			Topic topic = session.createTopic("notify1904");
+			
+			// 2 create producer
+			producer = session.createProducer(topic);
+			
+			// 3 create message
+			
+			TextMessage msg = session.createTextMessage("吴皓");
+			
+			// 4 publish message
+			producer.send(msg);
+			
+			session.commit();
+			
+		} catch (JMSException e) {
+			e.printStackTrace();
+		} finally {
+			producer.close();
+			session.close();
+			conn.close();
+		}
+		
+	}
+	
 }

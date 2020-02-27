@@ -19,9 +19,19 @@ class JmsServiceTest {
 //		js.send();
 //	}
 	
+//	@Test
+//	void testReceive() throws JMSException {
+//		js.reveive();
+//	}
+	
 	@Test
-	void testReceive() throws JMSException {
-		js.reveive();
+	void testPulish() throws JMSException, InterruptedException {
+		js.listenMsg();
+		
+		System.out.println("已经启动监听。。。。。。。。。。。。。。。。10 秒后发送消息");
+		Thread.sleep(1000*30);
+		System.out.println("将发送消息----------------------------------");
+		js.publish();
 	}
 
 }

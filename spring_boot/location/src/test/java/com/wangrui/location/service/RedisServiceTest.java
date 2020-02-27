@@ -29,9 +29,9 @@ class RedisServiceTest {
 //		rs.save();
 //	}
 	
-	@Test
-	void testGet() {
-		rs.get();
-	}
+//	@Test
+//	void testGet() {
+//		rs.get();
+//	}
 
 }
