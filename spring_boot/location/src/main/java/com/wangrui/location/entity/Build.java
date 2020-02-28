@@ -1,6 +1,8 @@
 package com.wangrui.location.entity;
 
-public class Build {
+import java.io.Serializable;
+
+public class Build implements Serializable{
 
 	private Integer ID;
 	private String name;

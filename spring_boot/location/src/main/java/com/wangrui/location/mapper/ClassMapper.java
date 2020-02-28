@@ -2,19 +2,25 @@ package com.wangrui.location.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.CacheNamespace;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Many;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
+
+import org.apache.ibatis.cache.decorators.FifoCache;
 import org.apache.ibatis.mapping.FetchType;
 
+
 import com.wangrui.location.entity.MyClass;
-//@CacheNamespace(blocking = true)
-@Mapper
+
+@Mapper()
+@CacheNamespace(eviction = FifoCache.class,readWrite = true,size = 50)
 public interface ClassMapper {
 
 	/**
@@ -31,6 +37,7 @@ public interface ClassMapper {
 	        		 many = @Many(fetchType = FetchType.EAGER,
 	        		              select = "com.wangrui.location.mapper.StudentMapper.findByClassID") )
 	         })
+	@Options(useCache = true)
 	public MyClass findByID(Integer ID) ;
 	
 	

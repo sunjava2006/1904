@@ -43,6 +43,7 @@ spring:
         max-idle: 8
         max-wait: -1ms
         min-idle: 0
+    
   cache:
     cache-names:
     - c1
@@ -54,8 +55,16 @@ spring:
   session:
     store-type: redis # session数据存储到 redis.
   
+mybatis:
+  configuration:
+    cache-enabled: true   # 默认是开启二级缓存全局配置的。
 
+
+    
  
+      
+
+
 # 输出 SQL 语句 
 #logging.level.com.wangrui.location.mapper=debug 
 logging:
