@@ -15,7 +15,7 @@ class EmailServiceTest {
 
 	@Test
 	void testSend() throws MessagingException {
-		this.email.send();
+		this.email.sendHtmlMail();
 	}
 
 }

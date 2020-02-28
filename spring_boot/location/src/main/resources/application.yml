@@ -31,21 +31,29 @@ spring:
             class: javax.net.ssl.SSLSocketFactory
         debug: true
 
-#      
-#  redis:
-#    host: 127.0.0.1
-#    port: 6379
-#    password: 123456
-#    database: 0
-#    lettuce:
-#      pool:
-#        max-active: 80
-#        max-idle: 8
-#        max-wait: -1ms
-#        min-idle: 0
-
-#  session:
-#    store-type: redis # session数据存储到 redis.
+      
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: 123456
+    database: 0
+    lettuce:
+      pool:
+        max-active: 80
+        max-idle: 8
+        max-wait: -1ms
+        min-idle: 0
+  cache:
+    cache-names:
+    - c1
+    - c2
+    - c3
+    redis:
+      time-to-live: 1800s # 缓存对象的生命周期
+      
+  session:
+    store-type: redis # session数据存储到 redis.
+  
 
  
 # 输出 SQL 语句 
@@ -54,7 +62,6 @@ logging:
   level: 
     com.wangrui.location.mapper: debug
     
-
    
 
 #mybatis.configuration.cache-enabled=true

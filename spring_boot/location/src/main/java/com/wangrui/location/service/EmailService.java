@@ -19,19 +19,22 @@ public class EmailService {
 	private JavaMailSender javaMailSender;
 	
 	
-	public void send() throws MessagingException {
-//		SimpleMailMessage mail = new SimpleMailMessage();
+	public void sendHtmlMail() throws MessagingException {
 		MimeMessage mail = this.javaMailSender.createMimeMessage();
 		MimeMessageHelper help = new MimeMessageHelper(mail);
 		
 		help.setFrom("392977758@qq.com");
 		help.setTo("jkwangrui@126.com");
 		help.setSubject("地理位置GG激活邮件");
-		
-		help.setText("激活，请点击：<a href=\"http://localhost:9999/active?id=123&activecode=1234567abcdefg\">http://localhost:9999/active?id=123&activecode=1234567abcdefg</a>");
+		String msg = "激活，请点击：<a href=\"http://localhost:9999/active?id=123&activecode=1234567abcdefg\">"
+				+ "http://localhost:9999/active?id=123&activecode=1234567abcdefg</a>";
+		help.setText(msg, true); // 第二个参数为true，表示是html类型。
 		help.setSentDate(new Date());
 		this.javaMailSender.send(mail);
 
 		
 	}
+
+
+	
 }
