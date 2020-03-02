@@ -4,31 +4,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>首页</title>
+<title>Insert title here</title>
 </head>
 <body>
-   
-   <form action="/fine" method="post">
-      <table>
-          <tr>
-              <td>用户名</td>
-              <td><input name="userName"></td>
-          </tr>
-          <tr>
-              <td>密码</td>
-              <td><input name="passwd"></td>
-          </tr>
-          <tr>
-              <td>
-                  ${msg }
-              </td>
-              <td >
-                  <input type="submit" value="登录">
-              </td>
-          </tr>
-      </table>
-    
-   </form>
-   
+ <%
+     String userName = request.getParameter("userName");
+     if("Wang".equals(userName)){
+    	 out.print("你好：" + userName);
+     }
+     else if ("Zhang".equals(userName)){
+    	 out.print("很不好");
+     }
+     else{
+    	 response.sendRedirect("http://www.qq.com");
+     }
+ %>
+
 </body>
 </html>

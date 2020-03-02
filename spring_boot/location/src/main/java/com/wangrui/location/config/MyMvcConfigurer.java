@@ -28,11 +28,11 @@ public class MyMvcConfigurer implements WebMvcConfigurer {
 		registry.addViewController("/").setViewName("loginpage");// 改变首页
 	}
 
-	@Override
-	public void addInterceptors(InterceptorRegistry registry) {
-		InterceptorRegistration  ir = 	registry.addInterceptor(new LoginInterseptor());
-		ir.addPathPatterns("/*");
-	}
+//	@Override
+//	public void addInterceptors(InterceptorRegistry registry) {
+//		InterceptorRegistration  ir = 	registry.addInterceptor(new LoginInterseptor());
+//		ir.addPathPatterns("/*");
+//	}
 	
 	@Bean(name = "1904")
 	public Queue createQueue() {

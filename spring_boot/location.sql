@@ -115,6 +115,23 @@ select * from classes order by id desc)a where rownum<=4) where ro>2;
 
 update CLASSES set CLASS_NAME='1504' where CLASS_NAME is null;
 
+-----------------------------------------------------------------------------
+
+create table teachers
+(
+   id number constraint pk_teache_id primary key,
+   teacher_id number constraint uni_teacher_id unique,
+   name varchar2(20)
+);
+--===========================================================================
+create table teach
+(
+id number constraint pk_teach_id primary key,
+teacher_id number constraint fk_teach_teacher_id references teachers(id),
+subject_id number constraint fk_teach_subject_id references subjects(id)
+);
+
+
 --==========================================================================
 -- 根据班级名查询一课程安排，按星期排序
 select * from plans p
