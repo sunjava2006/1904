@@ -9,7 +9,7 @@ import java.io.OutputStream;
 
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -29,9 +29,10 @@ public class TestController {
 	}
 	
 	@RequestMapping("/code")
-	public void img( OutputStream out) throws IOException {
+	public void img( OutputStream out, HttpSession session) throws IOException {
 		int ran = (int)(Math.random()*10000);
 		String str = String.valueOf(ran);
+		session.setAttribute("code", str);
 		
 //		OutputStream out = response.getOutputStream();
 		
