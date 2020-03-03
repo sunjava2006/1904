@@ -2,6 +2,7 @@ package com.wangrui.location;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -9,6 +10,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 @EnableTransactionManagement // 启用声明式事务管理
 @EnableCaching  // 启用缓存
+@ServletComponentScan
 public class LocationApplication {
 
 	public static void main(String[] args) {
