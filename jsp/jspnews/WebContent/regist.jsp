@@ -12,29 +12,42 @@
 </style>
 </head>
 <body>
-   <table style="width:400px;height:300px; margin:auto;">
-       <tr>
-           <td>用户名</td>
-           <td><input type="text" name="userName"></td>
-       </tr>
-        <tr>
-           <td>密码</td>
-           <td><input type="password" name="password"></td>
-       </tr>
-        <tr>
-           <td>验证码</td>
-           <td>
-               <input type="text" name="code">
-               <img src="/code" onclick="this.src='/code?1='+Math.random()"  title="点击更换验证码">
-           
-           </td>
-           
-       </tr>
-       <tr>
-           <td>
-           </td>
-           <td><input type="submit" name="注册"></td>
-       </tr>
-   </table>
+   <form action="/regist" method="post">
+	   <table style="width:400px;height:300px; margin:auto;">
+	       <tr>
+	           <td>用户名</td>
+	           <td><input type="text" name="userName"></td>
+	       </tr>
+	        <tr>
+	           <td>密码</td>
+	           <td><input type="password" name="password"></td>
+	       </tr>
+	        <tr>
+	           <td>验证码</td>
+	           <td>
+	               <input type="text" name="code">
+	               <img src="/code" onclick="this.src='/code?1='+Math.random()"  title="点击更换验证码">
+	           
+	           </td>
+	           
+	       </tr>
+	       <tr>
+	           <td>
+	           </td>
+	         
+	           <td>
+	             ${msg}<!-- EL 表达式 -->
+	           <%--
+	               String msg = (String)request.getAttribute("msg");
+	               if(null != msg){
+	            	   out.print(msg);
+	               }
+	               
+	           --%>
+	           
+	           <input type="submit" name="注册" style="float:right"></td>
+	       </tr>
+	   </table>
+   </form>
 </body>
 </html>
