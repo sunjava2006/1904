@@ -17,6 +17,6 @@
 	</environments>
 	<mappers>
 		<mapper resource="com/wangrui/zmall/entity/ProductMapper.xml" />
-       
+        <package name="com.wangrui.zmall.mapper"/>
 	</mappers>
 </configuration>
