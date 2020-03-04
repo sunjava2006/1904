@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wangrui.zmall.entity.ProductMapper">
+    <resultMap type="com.wangrui.zmall.entity.Product" id="ProductMapper">
+       <id column="id" property="ID"/>
+       <result column="name" property="name"/>
+       <result column="description" property="desc"/>
+       <result column="price" property="price"/>
+       <result column="unit" property="unit"/>
+    </resultMap>
+    
+    
+    <insert id="add" parameterType="com.wangrui.zmall.entity.Product">
+        insert into products(id, name, description, price, unit)
+        values(seq_products.nextval, #{name}, #{desc}, #{price}, #{unit})
+    </insert>
+
+</mapper>
