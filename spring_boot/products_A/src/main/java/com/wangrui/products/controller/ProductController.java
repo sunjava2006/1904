@@ -1,10 +1,13 @@
 package com.wangrui.products.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wangrui.products.entity.Product;
@@ -23,7 +26,8 @@ public class ProductController {
 	}
 	
 	@PostMapping()
-	public String add(Product product) {
+	//@CrossOrigin(origins = "http://127.0.0.1:5500", methods = RequestMethod.POST, maxAge = 1800)
+	public String add(@RequestBody Product product) {// 取请求报文体中的Json数据。
 		String result =  "ok";
 		try {
 			this.ps.add(product);

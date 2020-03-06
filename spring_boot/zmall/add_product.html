@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>添加商品</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap-theme.css">
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+
+<body>
+    <div class="container" id="app">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"> 添加商品</h3>
+            </div>
+            <div class="panel-body">
+
+
+                <div class="input-group">
+                    <div class="input-group-addon">商品名称</div>
+                    <input type="text" class="form-control" v-model="productName">
+                </div>
+
+                <div class="input-group">
+                    <div class="input-group-addon">单价</div>
+                    <input type="text" class="form-control" v-model="price">
+                </div>
+                <div class="input-group">
+                    <div class="input-group-addon">描述</div>
+                    <input type="text" class="form-control" v-model="desc">
+                </div>
+                <div class="input-group">
+
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" v-model="status" value="1">
+                            在售
+                        </label>
+                    </div>
+                    <span class="input-group-btn"> 
+                        <button type="button" class="btn btn-default" @click="addProduct">添加</button>
+                    </span>
+                </div>
+                
+         
+            </div>
+            <div class="panel-footer">
+                {{msg}}
+            </div>
+           
+            
+        </div>
+
+
+    </div>
+</body>
+
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script src="./node_modules/axios/dist/axios.js"></script>
+<script src="./js/zmall.js"></script>
+<script>
+    var app = new Vue({
+         el:'#app',
+         data() {
+             return {
+                 productName:null,
+                 price:null,
+                 desc:null,
+                 status:1,
+                 msg:null
+             }
+         },
+         methods: {
+            addProduct(arg, evt){
+                axios.post(serverUrl+"/product",
+                {
+                    "productName":this.productName,
+                    "status":this.status,
+                    "desc": this.desc,
+                    "price": this.price
+
+                })
+                .then(res => {
+                    console.log(res);
+                    if(res.data=="ok"){
+                        this.msg="添加成功";
+                        this.reset();
+                    }else{
+                        this.msg="添加失败";
+                    }
+                });
+               
+            },
+            reset(){
+                this.productName = null;
+                this.price = null;
+                this.desc = null;
+                this.status = 1;
+            }
+         }
+     })
+</script>
+
+</html>
