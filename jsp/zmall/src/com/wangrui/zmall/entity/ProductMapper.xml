@@ -9,12 +9,13 @@
        <result column="description" property="desc"/>
        <result column="price" property="price"/>
        <result column="unit" property="unit"/>
+       <result column="publish_date" property="publishDate"/>
     </resultMap>
     
     
     <insert id="add" parameterType="com.wangrui.zmall.entity.Product">
-        insert into products(id, name, description, price, unit)
-        values(seq_products.nextval, #{name}, #{desc}, #{price}, #{unit})
+        insert into products(id, name, description, price, unit, publish_date)
+        values(seq_products.nextval, #{name}, #{desc}, #{price}, #{unit}, #{publishDate})
     </insert>
     
     <select id="findByID" parameterType="int" resultMap="ProductMapper" >

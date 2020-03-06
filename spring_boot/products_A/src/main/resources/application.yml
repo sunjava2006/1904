@@ -1,0 +1,13 @@
+server:
+  port: 9991
+  
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@127.0.0.1/XE
+    username: products
+    password: 123456
+    driver-class-name: oracle.jdbc.OracleDriver
+    
+  jpa:
+    database: oracle
+    show-sql: true

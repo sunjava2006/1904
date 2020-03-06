@@ -2,6 +2,7 @@ package com.wangrui.zmall.entity;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Date;
 
 public class Product implements Serializable{
 	
@@ -10,6 +11,7 @@ public class Product implements Serializable{
 	private String desc;
 	private BigDecimal price;
 	private String unit;
+	private Date publishDate;
 	
 	public Integer getID() {
 		return ID;
@@ -41,22 +43,31 @@ public class Product implements Serializable{
 	public void setUnit(String unit) {
 		this.unit = unit;
 	}
-	public Product(Integer iD, String name, String desc, BigDecimal price, String unit) {
+	
+	
+	public Date getPublishDate() {
+		return publishDate;
+	}
+	
+	public void setPublishDate(Date publishDate) {
+		this.publishDate = publishDate;
+	}
+	
+	public Product(Integer iD, String name, String desc, BigDecimal price, String unit, Date publishDate) {
 		super();
 		ID = iD;
 		this.name = name;
 		this.desc = desc;
 		this.price = price;
 		this.unit = unit;
+		this.publishDate = publishDate;
 	}
+	
 	public Product() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	@Override
-	public String toString() {
-		return "Product [ID=" + ID + ", name=" + name + ", desc=" + desc + ", price=" + price + ", unit=" + unit + "]";
-	}
+	
 	
 	
 

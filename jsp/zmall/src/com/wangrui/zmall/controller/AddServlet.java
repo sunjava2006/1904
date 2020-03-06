@@ -2,6 +2,7 @@ package com.wangrui.zmall.controller;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,7 +27,7 @@ public class AddServlet extends HttpServlet {
 		
 		ProductService ps = new ProductService();
 		
-		Product p = new Product(null, name, desc, new BigDecimal(price), unit);
+		Product p = new Product(null, name, desc, new BigDecimal(price), unit, new Date());
 		
 		if(ps.add(p)) {// 添加商品，并判断是否成功
 			request.setAttribute("page", 1);
@@ -34,7 +35,7 @@ public class AddServlet extends HttpServlet {
 			request.getRequestDispatcher("/list").forward(request, response);
 		}else {//失败
 			request.setAttribute("msg", "添加商品失败，请重试或联系管理员。");
-			request.getRequestDispatcher("/Index.jsp").forward(request, response);
+			request.getRequestDispatcher("/Add.jsp").forward(request, response);
 		}
 	}
 

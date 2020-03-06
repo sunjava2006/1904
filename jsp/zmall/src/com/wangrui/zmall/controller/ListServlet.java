@@ -36,7 +36,7 @@ public class ListServlet extends HttpServlet {
 		List<Product> list = ps.listByPage(pp, ss);
 		
 		request.setAttribute("list", list);
-		request.getRequestDispatcher("/Index.jsp").forward(request, response);
+		request.getRequestDispatcher("/Add.jsp").forward(request, response);
 		
 		
 		
