@@ -11,3 +11,14 @@ spring:
   jpa:
     database: oracle
     show-sql: true
+    
+  application:
+    name: products_service #// 应用程序名，可显示为提供的服务名。
+    
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7771/eureka/
+  instance:
+    prefer-ip-address: true   # 用ip地址注册。
+    
