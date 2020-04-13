@@ -1,6 +1,6 @@
 package com.wangrui.products.service;
 
-import java.util.Optional;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,6 +8,10 @@ import org.springframework.stereotype.Service;
 import com.wangrui.products.dao.ProductDao;
 import com.wangrui.products.entity.Product;
 
+/**
+ * @author wangrui
+ *
+ */
 @Service
 public class ProductService {
 
@@ -34,4 +38,13 @@ public class ProductService {
 		return this.pdao.findById(id).get();
 	}
 	
+	
+	/**
+	 * 根据多个Id，查询商品
+	 * @param ids
+	 * @return
+	 */
+	public List<Product> findByIds(Iterable<Integer> ids){
+		return this.pdao.findAllById(ids);
+	}
 }

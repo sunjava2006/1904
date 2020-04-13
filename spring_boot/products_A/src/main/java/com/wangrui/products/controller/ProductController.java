@@ -1,13 +1,14 @@
 package com.wangrui.products.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wangrui.products.entity.Product;
@@ -17,11 +18,18 @@ import com.wangrui.products.service.ProductService;
 @RequestMapping("/product")
 public class ProductController {
 
+	@Value("${server.port}")
+	private int port;
+	
 	@Autowired
 	private ProductService ps;
 	
 	@GetMapping(path = "/{id}") //url:/product/1
-	public Product findByID(@PathVariable("id") int id) {
+	public Product findByID(@PathVariable("id") int id) throws InterruptedException {
+		System.out.println("-------------------:"+this.port);
+		
+		Thread.sleep(2000); // 休眠2秒，以模拟运行高负载或有故障状态。
+		
 		return this.ps.findByID(id);
 	}
 	
@@ -38,7 +46,11 @@ public class ProductController {
 		return result;
 	}
 	
-	
+	@GetMapping(path = "/list/{ids}")
+	public List<Product> findByIds(@PathVariable("ids") List<Integer> ids){
+		System.out.println(ids);
+		return this.ps.findByIds(ids);
+	}
 }
 
 

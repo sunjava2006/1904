@@ -1,0 +1,31 @@
+#server.port=8888
+#management.security.enabled=false
+#management.endpoints.autoconfig.enabled=true
+#management.endpoint.env.enabled=true
+#
+spring:
+  security:
+    user:
+      name: admin
+      password: 123456
+  boot:
+    admin:
+      client:
+        url:
+        - http://localhost:9999
+
+server:
+  port: 9999
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        -  info
+        -  health
+        -  beans
+        -  env
+        -  loggers
+           
+
+        

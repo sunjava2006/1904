@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration     PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<environments default="development">
+    <environment id="development">
+             <transactionManager type="JDBC">
+             </transactionManager>
+             <dataSource type="UNPOOLED">
+        <property name="driver" value="org.mariadb.jdbc.Driver"/>
+        <property name="url" value="jdbc:mariadb://localhost:3306/location"/>
+        <property name="username" value="gg"/>
+        <property name="password" value="123456"/>
+             </dataSource>
+    </environment>
+  </environments>
+  <mappers>
+      <!--             <mapper resource="com/profound/my/batis/bean/CountryMapper.xml"/> -->
+     <package name="com.thzhima.fuxi.mapper"/>
+  </mappers>
+</configuration>

@@ -4,6 +4,6 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:7771/eureka/
+      defaultZone: http://localhost:7771/eureka/,http://localhost:7772/eureka/
   instance:
     prefer-ip-address: true   # 用ip地址注册。

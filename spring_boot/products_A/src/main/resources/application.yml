@@ -13,12 +13,14 @@ spring:
     show-sql: true
     
   application:
-    name: products_service #// 应用程序名，可显示为提供的服务名。
+    name: products-service #// 应用程序名，可显示为提供的服务名。
     
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:7771/eureka/
+      defaultZone: http://localhost:7771/eureka/,http://localhost:7772/eureka/ 
   instance:
-    prefer-ip-address: true   # 用ip地址注册。
+    prefer-ip-address: true # 使用ip地址注册
+   # instance-id: ${spring.cloud.client.ip-address}:${server.port}
+
     

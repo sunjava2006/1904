@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: REGIST-CENTER-B
+server:
+  port: 7772
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:7771/eureka/
