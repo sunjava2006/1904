@@ -24,11 +24,14 @@ public class RegistServlet implements Servlet{
 
 	@Override // 当用户请求时，调用。
 	public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
+		
+		
+		
 		// 取出表单发送来的数据。
 		String userName = req.getParameter("userName");
-		
+        System.out.println(userName);
 		// 手动转码
-		userName = new String(userName.getBytes("iso-8859-1"),"utf-8");
+//		userName = new String(userName.getBytes("iso-8859-1"),"utf-8");
 		
 		String pwd = req.getParameter("pwd");
 		

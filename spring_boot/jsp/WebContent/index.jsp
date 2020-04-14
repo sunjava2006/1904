@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,5 +17,6 @@
    </form>
    
    <a href="./stuList?page=1&len=3">学生列表</a>
+   ${applicationScope.accessCount}
 </body>
 </html>
