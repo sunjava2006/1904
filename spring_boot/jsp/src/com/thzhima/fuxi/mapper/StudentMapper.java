@@ -1,8 +1,12 @@
 package com.thzhima.fuxi.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 
@@ -23,4 +27,12 @@ public interface StudentMapper {
 	        		  @Result(column = "passwd", property = "passwd"),
 	        		  @Result(column = "class_id", property = "classID")})
 	public Student find(@Param("studentName") String studentName,@Param("passwd") String passwd);
+	
+	
+	@Select("SELECT * FROM students ORDER BY id DESC LIMIT #{idx},#{len};")
+	@ResultMap(value = "StudentMapper")
+	public List<Student> list(@Param("idx") int idx, @Param("len") int len);
+	
+	@Select(value="select count(*) from students")
+	public long totalCount();
 }
